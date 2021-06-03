@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WeatherApp.Model;
+using WeatherApp.View;
 using WeatherApp.ViewModel.Commands;
 using WeatherApp.ViewModel.Helpers;
 
@@ -56,6 +57,7 @@ namespace WeatherApp.ViewModel
         }
 
         public SearchCommand SearchCommand { get; set; }
+        public ForecastCommand ForecastCommand { get; set; }
 
         public WeatherVM()
         {
@@ -80,6 +82,7 @@ namespace WeatherApp.ViewModel
             }
 
             SearchCommand = new SearchCommand(this);
+            ForecastCommand = new ForecastCommand(this);
             Cities = new ObservableCollection<City>();
         }
 
@@ -99,6 +102,12 @@ namespace WeatherApp.ViewModel
             {
                 Cities.Add(city);
             }
+        }
+
+        public void SeeForecast()
+        {
+            ForecastWindow forecastWindow = new ForecastWindow();
+            forecastWindow.Show();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
