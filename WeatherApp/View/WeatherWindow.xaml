@@ -13,7 +13,7 @@
         <vm:WeatherVM x:Key="vm"/>
         <converters:BoolToRainConverter x:Key="boolToRain"/>
     </Window.Resources>
-    
+  
     <Grid DataContext="{StaticResource vm}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>

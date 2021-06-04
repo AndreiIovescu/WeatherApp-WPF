@@ -14,6 +14,8 @@ namespace WeatherApp.ViewModel
 {
     public class WeatherVM : INotifyPropertyChanged
     {
+        public static string CityForDetails = "NONE";
+
         private string query;
 
         public string Query
@@ -50,6 +52,8 @@ namespace WeatherApp.ViewModel
                 selectedCity = value;
                 if (selectedCity != null)
                 {
+                    CityForDetails = selectedCity.Key;
+
                     OnPropertyChanged("SelectedCity");
                     GetCurrentConditions();
                 }
@@ -107,6 +111,7 @@ namespace WeatherApp.ViewModel
         public void SeeForecast()
         {
             ForecastWindow forecastWindow = new ForecastWindow();
+            //forecastWindow.DataContext = this;
             forecastWindow.Show();
         }
 
