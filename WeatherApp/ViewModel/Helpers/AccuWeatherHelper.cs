@@ -63,7 +63,6 @@ namespace WeatherApp.ViewModel.Helpers
             {
                 var response = await client.GetAsync(url);
                 string json = await response.Content.ReadAsStringAsync();
-                var daily_forecast = json[0];
 
                 dailyForecast = (JsonConvert.DeserializeObject<List<DailyForecast>>(json));
             }
