@@ -1,8 +1,8 @@
-# WeatherApp-WPF
+# **WeatherApp-WPF**
 Team:
 * Iovescu Andrei
 * Borza Alexandru
-## About
+## **About**
 
 This project is an application written with C# and the WPF UI framework.
 
@@ -16,7 +16,7 @@ At the bottom of the main window there is also a button that will launch a secon
 
 In the second window there will be displayed a 5 day forecast for the selected city.
 
-## Code Notes
+## **Code Notes**
 
 We used the Model View ViewModel (MVVM) architectural pattern that is targeted at modern UI development platforms like WPF.
 
@@ -28,7 +28,7 @@ https://developer.accuweather.com/accuweather-forecast-api/apis/get/forecasts/v1
 * **Current Conditions** -that is used to get the current weather conditions in a city 
 https://developer.accuweather.com/accuweather-current-conditions-api/apis/get/currentconditions/v1/%7BlocationKey%7D
 
-VIEWS: 
+**VIEWS**: 
 
 * **WeatherWindowView**: 
 
@@ -55,6 +55,46 @@ The search command will be able to execute only when the user enters a value in 
   ![image](https://user-images.githubusercontent.com/61495316/120894005-cae11800-c61e-11eb-927b-ad855f75ea49.png)
 
   
-MODELS: 
+**MODELS**:
+
+* **City**:
+
+  This model is needed in order to represent in C# the information retrieved from the API regarding the city. 
+  We construct this class based on the information provided by the AccuWeather documentation.
+  
+  ![image](https://user-images.githubusercontent.com/61495316/120894172-ba7d6d00-c61f-11eb-99d8-6d9e941c3647.png)
+  
+  We also create a helper class **Area**, since attributes like Country and AdministrativeArea both have properties of their own like ID and LocalizedName.
+  
+  ![image](https://user-images.githubusercontent.com/61495316/120894369-b0a83980-c620-11eb-8bbc-d74d5cb4998b.png)
+
+  
+* **CurrentCondition**:
+
+  Same as with the City class, this class is used to represent in C# the information recieved from the API call about the current conditions in the selected city.
+  
+  ![image](https://user-images.githubusercontent.com/61495316/120894228-17792300-c620-11eb-80f8-46163dc2d133.png)
+  
+  CurrentConditions also needs some helper classes like **Temperature** and **Units**. 
+  
+  ![image](https://user-images.githubusercontent.com/61495316/120894429-fa911f80-c620-11eb-835c-819429d022b1.png)
+  
+* **DailyForecast**:
+
+  The 5DaysForecast API returns an array of 5 DailyForecast objects and for that we need to be able to translate the json recieved from the API into C# data.
+  
+  ![image](https://user-images.githubusercontent.com/61495316/120895869-99b91580-c627-11eb-97b2-3195f66d5592.png)
+  
+  To better represent the DailyForecast objects we once again need some helper classes like Headline, Day, Night and DailyTemperature.
+  We won't post pictures with all of them in here, but we will briefly describe them.
+  
+  **Headline**:
+    
+     Each Forecast object has an headline property that includes:
+     * EffectiveDate, the date when this headline is in effect.
+     * Text, which represents the most significant weather event over the next 5 days.
+
+
+
 
 VIEWMODELS: 
