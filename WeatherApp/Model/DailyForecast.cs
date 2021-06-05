@@ -13,6 +13,8 @@ namespace WeatherApp.Model
         public DailyTemperature DailyTemperature { get; set; }
         public string Link { get; set; }
         public string MobileLink { get; set; }
+        public Day Day { get; set; }
+        public Night Night { get; set; }
 
     }
 
