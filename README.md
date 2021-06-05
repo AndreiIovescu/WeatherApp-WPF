@@ -35,18 +35,26 @@ VIEWS:
   This is the view that represents the first window, that will be displayed on application launch.
 The search command will be able to execute only when the user enters a value in the textbox. We can see that in the snippet below.
 
-  ![image](https://user-images.githubusercontent.com/61495316/120862697-0aadee00-c592-11eb-8e94-6498e4756cda.png)
+  ![image](https://user-images.githubusercontent.com/61495316/120893814-d41db500-c61d-11eb-9e08-3f93eb50cf25.png)
 
   After we introduce a value in the textbox and hit the search button we must choose the corresponding city from a dropdown list as seen in the snippet below.
   In our example, Timisoara has only one entry, but there are cities with more than 1 entry in the data set.
   
-  ![image](https://user-images.githubusercontent.com/61495316/120863386-1ea61f80-c593-11eb-8911-4e85eb43920a.png)
+  ![image](https://user-images.githubusercontent.com/61495316/120893917-527a5700-c61e-11eb-833b-9cded5a238da.png)
   
   After choosing the city, we can see that now we have displayed in the bottom part of the window the city, a general text about the weather, if it is raining and 
   the temperature.
   
-  ![image](https://user-images.githubusercontent.com/61495316/120868003-be67ab80-c59b-11eb-8e09-8071f65f740a.png)
+  ![image](https://user-images.githubusercontent.com/61495316/120893893-32e32e80-c61e-11eb-92d2-ab9ac880ea1a.png)
+  
+* **ForecastWindow**:
 
+  This window will launch upon pressing the see forecast button on the main window. It will display the weather forecast for the next 5 days in the selected city.
+  The details shown are the date, the chance of precipitation and the temperature high and low value.
+  
+  ![image](https://user-images.githubusercontent.com/61495316/120894005-cae11800-c61e-11eb-927b-ad855f75ea49.png)
+
+  
 MODELS: 
 
 VIEWMODELS: 
