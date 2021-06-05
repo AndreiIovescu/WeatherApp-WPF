@@ -11,6 +11,8 @@ namespace WeatherApp.Model
         public DateTime Date { get; set; }
         public Headline Headline { get; set; }
         public DailyTemperature DailyTemperature { get; set; }
+        public string Link { get; set; }
+        public string MobileLink { get; set; }
 
     }
 
@@ -18,8 +20,6 @@ namespace WeatherApp.Model
     {
         public DateTime EffectiveDate { get; set; }
         public string Text { get; set; }
-        public string Link { get; set; }
-        public string MobileLink { get; set; }
     }
 
     public class Day
@@ -43,5 +43,4 @@ namespace WeatherApp.Model
         public Units Minimum { get; set; }
         public Units Maximum { get; set; }
     }
-
 }

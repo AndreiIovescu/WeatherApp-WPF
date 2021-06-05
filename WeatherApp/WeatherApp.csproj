@@ -116,5 +116,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\background3.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
