@@ -2,6 +2,9 @@
 Team:
 * Iovescu Andrei
 * Borza Alexandru
+## **Note** 
+
+The latest working version will always be found on the branch main.
 ## **About**
 
 This project is an application written with C# and the WPF UI framework.
@@ -83,9 +86,9 @@ The search command will be able to execute only when the user enters a value in 
 
   The 5DaysForecast API returns an array of 5 DailyForecast objects and for that we need to be able to translate the json recieved from the API into C# data.
   
-  ![image](https://user-images.githubusercontent.com/61495316/120895869-99b91580-c627-11eb-97b2-3195f66d5592.png)
+  ![image](https://user-images.githubusercontent.com/61495316/120896373-e271ce00-c629-11eb-94b1-36b067a701bc.png)
   
-  To better represent the DailyForecast objects we once again need some helper classes like Headline, Day, Night and DailyTemperature.
+  To better represent the DailyForecast objects we once again need some helper classes like Headline, Day and DailyTemperature.
   We won't post pictures with all of them in here, but we will briefly describe them.
   
   **Headline**:
@@ -93,7 +96,19 @@ The search command will be able to execute only when the user enters a value in 
      Each Forecast object has an headline property that includes:
      * EffectiveDate, the date when this headline is in effect.
      * Text, which represents the most significant weather event over the next 5 days.
+     
+  **Day**
+  
+    Each Forecast object has 2 properties, one for the night time and one for the day time that contain:
+    * Icon, numeric value representing an icon that matches the forecast. 
+    * HasPrecipitation, boolean value that indicates the presence of any type of precipitation for a given day.
+    * Precipitation probability, percent representing the probability of precipitation.
 
+  **DailyTemperature** 
+  
+  Each Forecast object has one property of type DailyTemperature that holds the properties:
+  * Minimum, minimum temperature value for the respective day.
+  * Maximum, maximum temperature value for the respective day.
 
 
 
