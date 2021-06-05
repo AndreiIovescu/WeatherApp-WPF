@@ -59,7 +59,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\DailyForecast.cs" />
+    <Compile Include="ViewModel\Commands\ForecastCommand.cs" />
     <Compile Include="ViewModel\Commands\SearchCommand.cs" />
+    <Compile Include="ViewModel\ForecastVM.cs" />
     <Compile Include="ViewModel\Helpers\AccuWeatherHelper.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -67,6 +70,9 @@
     </Compile>
     <Compile Include="ViewModel\ValueConverters\BoolToRainConverter.cs" />
     <Compile Include="ViewModel\WeatherVM.cs" />
+    <Compile Include="View\ForecastWindow.xaml.cs">
+      <DependentUpon>ForecastWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\WeatherWindow.xaml.cs">
       <DependentUpon>WeatherWindow.xaml</DependentUpon>
     </Compile>
@@ -101,10 +107,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="View\ForecastWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\WeatherWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\background3.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

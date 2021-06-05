@@ -15,22 +15,13 @@ using System.Windows.Shapes;
 namespace WeatherApp.View
 {
     /// <summary>
-    /// Interaction logic for WeatherWindow.xaml
+    /// Interaction logic for ForecastWindow.xaml
     /// </summary>
-    public partial class WeatherWindow : Window
+    public partial class ForecastWindow : Window
     {
-        public WeatherWindow()
+        public ForecastWindow()
         {
             InitializeComponent();
-        }
-
-        public void ForecastButton(object sender, RoutedEventArgs e)
-        {
-            //ForecastWindow forecastWindow = new ForecastWindow();
-
-            //forecastWindow.Show();
-
-            //this.Close();
         }
     }
 }

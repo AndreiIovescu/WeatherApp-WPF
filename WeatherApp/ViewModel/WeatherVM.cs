@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WeatherApp.Model;
+using WeatherApp.View;
 using WeatherApp.ViewModel.Commands;
 using WeatherApp.ViewModel.Helpers;
 
@@ -13,6 +14,8 @@ namespace WeatherApp.ViewModel
 {
     public class WeatherVM : INotifyPropertyChanged
     {
+        public static string CityForDetails = "NONE";
+
         private string query;
 
         public string Query
@@ -49,6 +52,8 @@ namespace WeatherApp.ViewModel
                 selectedCity = value;
                 if (selectedCity != null)
                 {
+                    CityForDetails = selectedCity.Key;
+
                     OnPropertyChanged("SelectedCity");
                     GetCurrentConditions();
                 }
@@ -56,6 +61,7 @@ namespace WeatherApp.ViewModel
         }
 
         public SearchCommand SearchCommand { get; set; }
+        public ForecastCommand ForecastCommand { get; set; }
 
         public WeatherVM()
         {
@@ -80,6 +86,7 @@ namespace WeatherApp.ViewModel
             }
 
             SearchCommand = new SearchCommand(this);
+            ForecastCommand = new ForecastCommand(this);
             Cities = new ObservableCollection<City>();
         }
 
@@ -99,6 +106,13 @@ namespace WeatherApp.ViewModel
             {
                 Cities.Add(city);
             }
+        }
+
+        public void SeeForecast()
+        {
+            ForecastWindow forecastWindow = new ForecastWindow();
+            //forecastWindow.DataContext = this;
+            forecastWindow.Show();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
