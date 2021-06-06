@@ -42,7 +42,7 @@ namespace WeatherApp.ViewModel
             }
         }
 
-        private async void GetFiveDayForecast()
+        private void GetFiveDayForecast()
         {
            // DailyForecast = await AccuWeatherHelper.GetFiveDayForecast(_City);
         }
