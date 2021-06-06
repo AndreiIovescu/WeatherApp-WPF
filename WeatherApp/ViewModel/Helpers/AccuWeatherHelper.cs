@@ -16,8 +16,7 @@ namespace WeatherApp.ViewModel.Helpers
         public const string CURRENT_CONDITIONS_ENDPOINT = "currentconditions/v1/{0}?apikey={1}";
         public const string FIVE_DAYS_FORECAST_ENDPOINT = "forecasts/v1/daily/5day/{0}?apikey={1}";
         public const string API_KEY = "LcFJrVUpU3lVT8aA0IAGgXnMLFqK8DmW";
-        //public const string API_KEY = "8STY2SK0tiXMl8X0URkZY6pRvqy6ybW9 ";
-        //public const string API_KEY = "Sx1OF3piASbTJyfXPVv0HJm65AWLnTV6"; 
+        //public const string API_KEY = "8STY2SK0tiXMl8X0URkZY6pRvqy6ybW9 "
 
         public static async Task<List<City>> GetCities(string query)
         {
