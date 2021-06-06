@@ -2,6 +2,9 @@
 Team:
 * Iovescu Andrei
 * Borza Alexandru
+## **Note** 
+
+The latest working version will always be found on the branch main.
 ## **About**
 
 This project is an application written with C# and the WPF UI framework.
@@ -83,9 +86,9 @@ The search command will be able to execute only when the user enters a value in 
 
   The 5DaysForecast API returns an array of 5 DailyForecast objects and for that we need to be able to translate the json recieved from the API into C# data.
   
-  ![image](https://user-images.githubusercontent.com/61495316/120895869-99b91580-c627-11eb-97b2-3195f66d5592.png)
+  ![image](https://user-images.githubusercontent.com/61495316/120896373-e271ce00-c629-11eb-94b1-36b067a701bc.png)
   
-  To better represent the DailyForecast objects we once again need some helper classes like Headline, Day, Night and DailyTemperature.
+  To better represent the DailyForecast objects we once again need some helper classes like Headline, Day and DailyTemperature.
   We won't post pictures with all of them in here, but we will briefly describe them.
   
   **Headline**:
@@ -93,8 +96,60 @@ The search command will be able to execute only when the user enters a value in 
      Each Forecast object has an headline property that includes:
      * EffectiveDate, the date when this headline is in effect.
      * Text, which represents the most significant weather event over the next 5 days.
+     
+  **Day**
+  
+    Each Forecast object has 2 properties, one for the night time and one for the day time that contain:
+    * Icon, numeric value representing an icon that matches the forecast. 
+    * HasPrecipitation, boolean value that indicates the presence of any type of precipitation for a given day.
+    * Precipitation probability, percent representing the probability of precipitation.
+
+  **DailyTemperature** 
+  
+  Each Forecast object has one property of type DailyTemperature that holds the properties:
+  * Minimum, minimum temperature value for the respective day.
+  * Maximum, maximum temperature value for the respective day.
 
 
 
+**VIEWMODELS**: 
 
-VIEWMODELS: 
+  The view model is a non-visual class and does not derive from any WPF or Silverlight base class. It encapsulates the presentation logic required to support a use case or user task   in the application. The view model is testable independently of the view and the model.
+  
+  For a better separation of logic we have two view models in our application, one for each view and some helper classes that we'll explain later.
+  
+* **WeatherVM**:
+    
+  This view model corresponds to the first window. It is responsible to store (in code) the weather information about the city that was introduced. It first stores the city name that   was selected and based on it, it calls the AccuWeather API to get the current conditions. It will act as the mediator between the information and the view. 
+    
+    ![image](https://user-images.githubusercontent.com/61495316/120917874-3e843300-c6ba-11eb-9e03-c90377fb83f1.png)
+    
+    This is the GetCurrentConditions method that is implemented in a helper class **AccuWeatherHelper**, where all the methods that involve an API call are written. 
+    In there, we also have a similar method to get all the cities that correspond to the introduced one in the main window and a method to get the five day forecast. 
+    
+   ![image](https://user-images.githubusercontent.com/61495316/120918394-f286bd80-c6bc-11eb-82f5-81f1fae0e2ef.png)
+   
+   Still there, we also need to create the URL for each different call and store the API key.
+   
+   ![image](https://user-images.githubusercontent.com/61495316/120918547-a425ee80-c6bd-11eb-8c69-d33b8f07f678.png)
+   
+* **ForecastVM**
+
+  The second view model corresponds to the ForecastWindov view. It needs to hold the DailyForecast list that is recieved from the API and pass it to the view whenever is needed.
+  Since there is no actual interaction between the user and the second view, as it is just a window used for dispaly, this is the sole purpose of this second view model.
+  
+  We call the forecast method in **ForecastVM**:
+  
+  ![image](https://user-images.githubusercontent.com/61495316/120918816-06cbba00-c6bf-11eb-8358-c62565df3198.png)
+  
+  And the implementation can be found in the **AccuWeatherHelper** class:
+  
+  ![image](https://user-images.githubusercontent.com/61495316/120918840-367ac200-c6bf-11eb-9aa5-2fcce66fda55.png)
+
+
+  
+
+
+    
+    
+
