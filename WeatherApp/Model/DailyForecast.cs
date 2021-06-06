@@ -13,8 +13,8 @@ namespace WeatherApp.Model
         public DailyTemperature DailyTemperature { get; set; }
         public string Link { get; set; }
         public string MobileLink { get; set; }
-        public Day Day { get; set; }
-        public Night Night { get; set; }
+        public Day DayTime { get; set; }
+        public Day NightTime { get; set; }
 
     }
 
@@ -31,14 +31,6 @@ namespace WeatherApp.Model
         public string PrecipitationType { get; set; }
         
     }
-
-    public class Night
-    {
-        public int Icon { get; set; }
-        public bool HasPrecipitation { get; set; }
-        public string PrecipitationType { get; set; }
-    }
-
 
     public class DailyTemperature
     {
