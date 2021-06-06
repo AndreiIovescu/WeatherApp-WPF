@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -102,17 +104,25 @@ namespace WeatherApp.ViewModel
             var cities = await AccuWeatherHelper.GetCities(Query);
 
             Cities.Clear();
-            foreach(var city in cities)
+            foreach (var city in cities)
             {
                 Cities.Add(city);
             }
         }
 
+        public void WriteToFile()
+        {
+            File.WriteAllText("Weather.json",JsonConvert.SerializeObject(currrentConditions));
+        }
+
+
         public void SeeForecast()
         {
+
             ForecastWindow forecastWindow = new ForecastWindow();
             //forecastWindow.DataContext = this;
             forecastWindow.Show();
+            WriteToFile();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
