@@ -29,31 +29,6 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <StackPanel Margin="0,10">
-                <TextBlock Text="Sunday, June 6"
-                           Foreground="#f4f4f8"
-                           FontSize="18"
-                           Margin="20,0"/>
-                <TextBlock Text="Precipitation: 25%"
-                           Foreground="#f4f4f8"
-                           FontSize="18"
-                           Margin="20,0"/>
-                <TextBlock Text="Temperature low: 10°C"
-                           Foreground="#f4f4f8"
-                           FontSize="18"
-                           Margin="20,0"/>
-                <TextBlock Text="Temperature high: 22°C"
-                           Foreground="#f4f4f8"
-                           FontSize="18"
-                           Margin="20,0"/>
-            </StackPanel>
-        </Grid>
-        <Grid Grid.Row="1"
-              Background="#5B3256">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <StackPanel Margin="0,10">
                 <TextBlock Text="Monday, June 7"
                            Foreground="#f4f4f8"
                            FontSize="18"
@@ -72,7 +47,7 @@
                            Margin="20,0"/>
             </StackPanel>
         </Grid>
-        <Grid Grid.Row="2"
+        <Grid Grid.Row="1"
               Background="#5B3256">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -97,7 +72,7 @@
                            Margin="20,0"/>
             </StackPanel>
         </Grid>
-        <Grid Grid.Row="3"
+        <Grid Grid.Row="2"
               Background="#5B3256">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -122,7 +97,7 @@
                            Margin="20,0"/>
             </StackPanel>
         </Grid>
-        <Grid Grid.Row="4"
+        <Grid Grid.Row="3"
               Background="#5B3256">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -142,6 +117,31 @@
                            FontSize="18"
                            Margin="20,0"/>
                 <TextBlock Text="Temperature high: 24°C"
+                           Foreground="#f4f4f8"
+                           FontSize="18"
+                           Margin="20,0"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="4"
+              Background="#5B3256">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Margin="0,10">
+                <TextBlock Text="Friday, June 11"
+                           Foreground="#f4f4f8"
+                           FontSize="18"
+                           Margin="20,0"/>
+                <TextBlock Text="Precipitation: 25%"
+                           Foreground="#f4f4f8"
+                           FontSize="18"
+                           Margin="20,0"/>
+                <TextBlock Text="Temperature low: 10°C"
+                           Foreground="#f4f4f8"
+                           FontSize="18"
+                           Margin="20,0"/>
+                <TextBlock Text="Temperature high: 22°C"
                            Foreground="#f4f4f8"
                            FontSize="18"
                            Margin="20,0"/>
