@@ -29,7 +29,7 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <StackPanel Margin="0,10">
-                <TextBlock Text="Sunday, June 6"
+                <TextBlock Text="{Binding DailyForecast.DailyForecast[0].Link, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                            Foreground="#f4f4f8"
                            FontSize="18"
                            Margin="20,0"/>

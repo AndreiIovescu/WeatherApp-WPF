@@ -6,10 +6,17 @@ using System.Threading.Tasks;
 
 namespace WeatherApp.Model
 {
+    public class AccuWeather5DayModel
+    {
+        public Headline Headline { get; set; }
+        public List<DailyForecast> DailyForecast { get; set; }
+    }
+
+
     public class DailyForecast
     {
         public DateTime Date { get; set; }
-        public Headline Headline { get; set; }
+       
         public DailyTemperature DailyTemperature { get; set; }
         public string Link { get; set; }
         public string MobileLink { get; set; }

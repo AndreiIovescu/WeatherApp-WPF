@@ -13,15 +13,15 @@ namespace WeatherApp.ViewModel
     {
         public string _City { get; set; }
 
-        private List<DailyForecast> dailyForecast;
+        private AccuWeather5DayModel dailyForecast;
 
-        public List<DailyForecast> DailyForecast
+        public AccuWeather5DayModel DailyForecast
         {
             get { return dailyForecast; }
             set
             {
                 dailyForecast = value;
-                OnPropertyChanged("_City");
+                OnPropertyChanged("DailyForecast");
             }
         }
 
@@ -42,9 +42,10 @@ namespace WeatherApp.ViewModel
             }
         }
 
-        private void GetFiveDayForecast()
+        private async void GetFiveDayForecast()
         {
-           // DailyForecast = await AccuWeatherHelper.GetFiveDayForecast(_City);
+           DailyForecast = await AccuWeatherHelper.GetFiveDayForecast(_City);
+           int i = 0;
         }
 
         public ForecastVM()

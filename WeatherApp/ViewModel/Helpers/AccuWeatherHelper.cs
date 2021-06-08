@@ -52,9 +52,9 @@ namespace WeatherApp.ViewModel.Helpers
             return currrentConditions;
         }
 
-        public static async Task<List<DailyForecast>> GetFiveDayForecast(string cityKey)
+        public static async Task<AccuWeather5DayModel> GetFiveDayForecast(string cityKey)
         {
-            List<DailyForecast> dailyForecast = new List<DailyForecast>();
+            AccuWeather5DayModel dailyForecast = new AccuWeather5DayModel();
 
             string url = BASE_URL + string.Format(FIVE_DAYS_FORECAST_ENDPOINT, cityKey, API_KEY);
 
@@ -63,10 +63,10 @@ namespace WeatherApp.ViewModel.Helpers
                 var response = await client.GetAsync(url);
                 string json = await response.Content.ReadAsStringAsync();
 
-                dailyForecast = (JsonConvert.DeserializeObject<List<DailyForecast>>(json));
-            }
+                dailyForecast = (JsonConvert.DeserializeObject<AccuWeather5DayModel>(json));
 
-            return dailyForecast;
+                return dailyForecast;
+            }
         }
     }
 }
