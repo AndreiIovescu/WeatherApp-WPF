@@ -4,24 +4,24 @@ using System.Windows.Data;
 
 namespace WeatherApp.ViewModel.ValueConverters
 {
-    public class BoolToRainConverter : IValueConverter
+    public class HasPrecipitationConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            bool isRaining = (bool)value;
+            bool isPrecipitation = (bool)value;
 
-            if (isRaining)
-                return "Currently raining"; 
+            if (isPrecipitation)
+                return "Possibility of precipitations";
 
-            return "Currently not raining";
+            return "No precipitations expected";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            string isRaining = (string)value;
-            if (isRaining != null)
+            string isPrecipitation = (string)value;
+            if (isPrecipitation != null)
             {
-                if (isRaining == "Currently raining")
+                if (isPrecipitation == "Precipitations right now")
                     return true;
             }
             return false;

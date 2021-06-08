@@ -10,7 +10,7 @@ namespace WeatherApp.Model2
     {
         public Headline Headline { get; set; }
 
-        public List<DailyForecast> DailyForecasts;
+        public List<DailyForecast> DailyForecasts { get; set; }
 
     }
 

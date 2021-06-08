@@ -69,6 +69,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ViewModel\ValueConverters\BoolToRainConverter.cs" />
+    <Compile Include="ViewModel\ValueConverters\HasPrecipitationConverter.cs" />
     <Compile Include="ViewModel\WeatherVM.cs" />
     <Compile Include="View\ForecastWindow.xaml.cs">
       <DependentUpon>ForecastWindow.xaml</DependentUpon>

@@ -11,7 +11,7 @@
 
     <Window.Resources>
         <viewModel:ForecastVM x:Key="ViewModel"/>
-        <converters:BoolToRainConverter x:Key="boolToRain"/>
+        <converters:HasPrecipitationConverter x:Key="precipitationConverter"/>
     </Window.Resources>
 
     <Grid DataContext="{StaticResource ViewModel}">
@@ -22,28 +22,27 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <!-- StringFormat='{}{0:dddd, dd MMMM yyyy}'}" -->
         <Grid Grid.Row="0"
               Background="#5B3256"
-              DataContext="{Binding Forecast.DailyForecasts[0]}">
+              DataContext="{Binding Path=Forecast.DailyForecasts[0]}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <StackPanel Margin="0,10">
-                <TextBlock Text="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"   
+                <TextBlock Text="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat='{}{0:dddd, dd MMMM yyyy}'}"   
                            Foreground="#f4f4f8"
                            FontSize="18"
                            Margin="20,0"/>
-                <TextBlock Text="{Binding HasPrecipitation, Converter={StaticResource boolToRain}}"
+                <TextBlock Text="{Binding Day.HasPrecipitation, Converter={StaticResource precipitationConverter}}"
                            Foreground="#f4f4f8"
                            FontSize="18"
                            Margin="20,0"/>
-                <TextBlock Text=""
+                <TextBlock Text="{Binding Temperature.Maximum.Value, StringFormat=Temperature high: {0}°C}"
                            Foreground="#f4f4f8"
                            FontSize="18"
                            Margin="20,0"/>
-                <TextBlock Text="Temperature high: 22°C"
+                <TextBlock Text="{Binding Temperature.Minimum.Value, StringFormat=Temperature low: {0}°C}"
                            Foreground="#f4f4f8"
                            FontSize="18"
                            Margin="20,0"/>
@@ -51,51 +50,51 @@
         </Grid>
         <Grid Grid.Row="1"
               Background="#5B3256"
-              DataContext="{Binding Forecast.DailyForecasts[1]}">
+              DataContext="{Binding Path=Forecast.DailyForecasts[1]}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <StackPanel Margin="0,10">
-                <TextBlock Text="{Binding Date}"
+                <TextBlock Text="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat='{}{0:dddd, dd MMMM yyyy}'}"   
                            Foreground="#f4f4f8"
                            FontSize="18"
                            Margin="20,0"/>
-                <TextBlock Text="Precipitation: 25%"
+                <TextBlock Text="{Binding Day.HasPrecipitation, Converter={StaticResource precipitationConverter}}"
                            Foreground="#f4f4f8"
                            FontSize="18"
                            Margin="20,0"/>
-                <TextBlock Text="Temperature low: 11°C"
+                <TextBlock Text="{Binding Temperature.Maximum.Value, StringFormat=Temperature high: {0}°C}"
                            Foreground="#f4f4f8"
                            FontSize="18"
                            Margin="20,0"/>
-                <TextBlock Text="Temperature high: 24°C"
+                <TextBlock Text="{Binding Temperature.Minimum.Value, StringFormat=Temperature low: {0}°C}"
                            Foreground="#f4f4f8"
                            FontSize="18"
                            Margin="20,0"/>
             </StackPanel>
-        </Grid>
+    </Grid>
         <Grid Grid.Row="2"
               Background="#5B3256"
-              DataContext="{Binding Forecast.DailyForecasts[2]}">
+              DataContext="{Binding Path=Forecast.DailyForecasts[2]}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <StackPanel Margin="0,10">
-                <TextBlock Text="{Binding Date}"
+                <TextBlock Text="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat='{}{0:dddd, dd MMMM yyyy}'}"   
                            Foreground="#f4f4f8"
                            FontSize="18"
                            Margin="20,0"/>
-                <TextBlock Text="Precipitation: 24%"
+                <TextBlock Text="{Binding Day.HasPrecipitation, Converter={StaticResource precipitationConverter}}"
                            Foreground="#f4f4f8"
                            FontSize="18"
                            Margin="20,0"/>
-                <TextBlock Text="Temperature low: 12°C"
+                <TextBlock Text="{Binding Temperature.Maximum.Value, StringFormat=Temperature high: {0}°C}"
                            Foreground="#f4f4f8"
                            FontSize="18"
                            Margin="20,0"/>
-                <TextBlock Text="Temperature high: 24°C"
+                <TextBlock Text="{Binding Temperature.Minimum.Value, StringFormat=Temperature low: {0}°C}"
                            Foreground="#f4f4f8"
                            FontSize="18"
                            Margin="20,0"/>
@@ -103,25 +102,25 @@
         </Grid>
         <Grid Grid.Row="3"
               Background="#5B3256"
-              DataContext="{Binding Forecast.DailyForecasts[3]}">
+              DataContext="{Binding Path=Forecast.DailyForecasts[3]}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <StackPanel Margin="0,10">
-                <TextBlock Text="{Binding Date}"
+                <TextBlock Text="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat='{}{0:dddd, dd MMMM yyyy}'}"   
                            Foreground="#f4f4f8"
                            FontSize="18"
                            Margin="20,0"/>
-                <TextBlock Text="Precipitation: 40%"
+                <TextBlock Text="{Binding Day.HasPrecipitation, Converter={StaticResource precipitationConverter}}"
                            Foreground="#f4f4f8"
                            FontSize="18"
                            Margin="20,0"/>
-                <TextBlock Text="Temperature low: 14°C"
+                <TextBlock Text="{Binding Temperature.Maximum.Value, StringFormat=Temperature high: {0}°C}"
                            Foreground="#f4f4f8"
                            FontSize="18"
                            Margin="20,0"/>
-                <TextBlock Text="Temperature high: 25°C"
+                <TextBlock Text="{Binding Temperature.Minimum.Value, StringFormat=Temperature low: {0}°C}"
                            Foreground="#f4f4f8"
                            FontSize="18"
                            Margin="20,0"/>
@@ -129,25 +128,25 @@
         </Grid>
         <Grid Grid.Row="4"
               Background="#5B3256"
-              DataContext="{Binding Forecast.DailyForecasts[4]}">
+              DataContext="{Binding Path=Forecast.DailyForecasts[4]}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <StackPanel Margin="0,10">
-                <TextBlock Text="{Binding Date}"
+                <TextBlock Text="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat='{}{0:dddd, dd MMMM yyyy}'}"   
                            Foreground="#f4f4f8"
                            FontSize="18"
                            Margin="20,0"/>
-                <TextBlock Text="Precipitation: 6%"
+                <TextBlock Text="{Binding Day.HasPrecipitation, Converter={StaticResource precipitationConverter}}"
                            Foreground="#f4f4f8"
                            FontSize="18"
                            Margin="20,0"/>
-                <TextBlock Text="Temperature low: 11°C"
+                <TextBlock Text="{Binding Temperature.Maximum.Value, StringFormat=Temperature high: {0}°C}"
                            Foreground="#f4f4f8"
                            FontSize="18"
                            Margin="20,0"/>
-                <TextBlock Text="Temperature high: 24°C"
+                <TextBlock Text="{Binding Temperature.Minimum.Value, StringFormat=Temperature low: {0}°C}"
                            Foreground="#f4f4f8"
                            FontSize="18"
                            Margin="20,0"/>

@@ -21,6 +21,11 @@ namespace WeatherApp.ViewModel
             set
             {
                 forecast = value;
+                foreach (DailyForecast dailyForecast in forecast.DailyForecasts)
+                {
+                    dailyForecast.Temperature.Maximum.Value = Convert.ToString(Math.Round((Convert.ToDouble(dailyForecast.Temperature.Maximum.Value) -32.0 ) / 1.8));
+                    dailyForecast.Temperature.Minimum.Value = Convert.ToString(Math.Round((Convert.ToDouble(dailyForecast.Temperature.Maximum.Value) -32.0 ) / 1.8));
+                }
                 OnPropertyChanged("Forecast");
             }
         }
