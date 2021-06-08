@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WeatherApp.Model;
+using WeatherApp.Model2;
 using WeatherApp.ViewModel.Helpers;
 
 namespace WeatherApp.ViewModel
@@ -45,7 +45,6 @@ namespace WeatherApp.ViewModel
         private async void GetFiveDayForecast()
         {
            Forecast = await AccuWeatherHelper.GetFiveDayForecast(_City);
-            int i = 1;
         }
 
         public ForecastVM()

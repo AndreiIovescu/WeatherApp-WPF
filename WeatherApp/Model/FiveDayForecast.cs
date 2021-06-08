@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WeatherApp.Model
+namespace WeatherApp.Model2
 {
     public class FiveDayForecast
     {
@@ -17,7 +17,7 @@ namespace WeatherApp.Model
     public class DailyForecast
     {
         public DateTime Date { get; set; }
-        public RealFeelTemperature RealFeelTemperature { get; set; }
+        public Temperature Temperature { get; set; }
         public string Link { get; set; }
         public string MobileLink { get; set; }
         public Day Day { get; set; }
@@ -48,11 +48,17 @@ namespace WeatherApp.Model
         public int PrecipitationProbability { get; set; }
     }
 
-    public class RealFeelTemperature
-    { 
+    public class Temperature 
+    {
         public Units Minimum { get; set; }
         public Units Maximum { get; set; }
+    }
 
+    public class Units
+    {
+        public string Value { get; set; }
+        public string Unit { get; set; }
+        public int UnitType { get; set; }
     }
 
 }

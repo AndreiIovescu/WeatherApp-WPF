@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WeatherApp.View"
         xmlns:viewModel="clr-namespace:WeatherApp.ViewModel"
-        xmlns:valueConverters="clr-namespace:WeatherApp.ViewModel.ValueConverters"
+        xmlns:converters="clr-namespace:WeatherApp.ViewModel.ValueConverters"
         mc:Ignorable="d"
         Title="ForecastWindow" Height="650" Width="400">
 
     <Window.Resources>
         <viewModel:ForecastVM x:Key="ViewModel"/>
+        <converters:BoolToRainConverter x:Key="boolToRain"/>
     </Window.Resources>
 
     <Grid DataContext="{StaticResource ViewModel}">
@@ -21,24 +22,24 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <!-- <TextBlock Text="{Binding City, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/> -->
+        <!-- StringFormat='{}{0:dddd, dd MMMM yyyy}'}" -->
         <Grid Grid.Row="0"
-              Background="#5B3256">
+              Background="#5B3256"
+              DataContext="{Binding Forecast.DailyForecasts[0]}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <StackPanel Margin="0,10">
-                <TextBlock Text="{Binding Forecast.DailyForecasts[0].Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,
-                                    StringFormat='{}{0:dddd, dd MMMM yyyy}'}"
+                <TextBlock Text="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"   
                            Foreground="#f4f4f8"
                            FontSize="18"
                            Margin="20,0"/>
-                <TextBlock Text="Precipitation: 25%"
+                <TextBlock Text="{Binding HasPrecipitation, Converter={StaticResource boolToRain}}"
                            Foreground="#f4f4f8"
                            FontSize="18"
                            Margin="20,0"/>
-                <TextBlock Text="Temperature low: 10°C"
+                <TextBlock Text=""
                            Foreground="#f4f4f8"
                            FontSize="18"
                            Margin="20,0"/>
@@ -49,13 +50,14 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1"
-              Background="#5B3256">
+              Background="#5B3256"
+              DataContext="{Binding Forecast.DailyForecasts[1]}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <StackPanel Margin="0,10">
-                <TextBlock Text="Monday, June 7"
+                <TextBlock Text="{Binding Date}"
                            Foreground="#f4f4f8"
                            FontSize="18"
                            Margin="20,0"/>
@@ -74,13 +76,14 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Row="2"
-              Background="#5B3256">
+              Background="#5B3256"
+              DataContext="{Binding Forecast.DailyForecasts[2]}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <StackPanel Margin="0,10">
-                <TextBlock Text="Tuesday, June 8"
+                <TextBlock Text="{Binding Date}"
                            Foreground="#f4f4f8"
                            FontSize="18"
                            Margin="20,0"/>
@@ -99,13 +102,14 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Row="3"
-              Background="#5B3256">
+              Background="#5B3256"
+              DataContext="{Binding Forecast.DailyForecasts[3]}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <StackPanel Margin="0,10">
-                <TextBlock Text="Wednesday, June 9"
+                <TextBlock Text="{Binding Date}"
                            Foreground="#f4f4f8"
                            FontSize="18"
                            Margin="20,0"/>
@@ -124,13 +128,14 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Row="4"
-              Background="#5B3256">
+              Background="#5B3256"
+              DataContext="{Binding Forecast.DailyForecasts[4]}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <StackPanel Margin="0,10">
-                <TextBlock Text="Thursday, June 10"
+                <TextBlock Text="{Binding Date}"
                            Foreground="#f4f4f8"
                            FontSize="18"
                            Margin="20,0"/>
