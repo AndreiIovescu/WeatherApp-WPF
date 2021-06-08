@@ -59,7 +59,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\DailyForecast.cs" />
+    <Compile Include="Model\FiveDayForecast.cs" />
     <Compile Include="ViewModel\Commands\ForecastCommand.cs" />
     <Compile Include="ViewModel\Commands\SearchCommand.cs" />
     <Compile Include="ViewModel\ForecastVM.cs" />

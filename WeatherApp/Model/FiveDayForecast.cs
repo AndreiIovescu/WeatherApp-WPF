@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace WeatherApp.Model
 {
-    public class AccuWeather5DayModel
+    public class FiveDayForecast
     {
         public Headline Headline { get; set; }
-        public List<DailyForecast> DailyForecast { get; set; }
-    }
 
+        public List<DailyForecast> DailyForecasts;
+
+    }
 
     public class DailyForecast
     {
         public DateTime Date { get; set; }
-       
-        public DailyTemperature DailyTemperature { get; set; }
+        public RealFeelTemperature RealFeelTemperature { get; set; }
         public string Link { get; set; }
         public string MobileLink { get; set; }
-        public Day DayTime { get; set; }
-        public Day NightTime { get; set; }
+        public Day Day { get; set; }
+        public Night Night { get; set; }
 
     }
 
@@ -36,12 +36,23 @@ namespace WeatherApp.Model
         public int Icon { get; set; }
         public bool HasPrecipitation { get; set; }
         public string PrecipitationType { get; set; }
+        public int PrecipitationProbability { get; set; }
         
     }
 
-    public class DailyTemperature
+    public class Night
     {
+        public int Icon { get; set; }
+        public bool HasPrecipitation { get; set; }
+        public string PrecipitationType { get; set; }
+        public int PrecipitationProbability { get; set; }
+    }
+
+    public class RealFeelTemperature
+    { 
         public Units Minimum { get; set; }
         public Units Maximum { get; set; }
+
     }
+
 }
