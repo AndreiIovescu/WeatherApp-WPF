@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WeatherApp.Model;
+using WeatherApp.Model2;
 using WeatherApp.ViewModel.Helpers;
 
 namespace WeatherApp.ViewModel
@@ -13,15 +13,20 @@ namespace WeatherApp.ViewModel
     {
         public string _City { get; set; }
 
-        private List<DailyForecast> dailyForecast;
+        private FiveDayForecast forecast;
 
-        public List<DailyForecast> DailyForecast
+        public FiveDayForecast Forecast
         {
-            get { return dailyForecast; }
+            get { return forecast; }
             set
             {
-                dailyForecast = value;
-                OnPropertyChanged("_City");
+                forecast = value;
+                foreach (DailyForecast dailyForecast in forecast.DailyForecasts)
+                {
+                    dailyForecast.Temperature.Maximum.Value = Convert.ToString(Math.Round((Convert.ToDouble(dailyForecast.Temperature.Maximum.Value) -32.0 ) / 1.8));
+                    dailyForecast.Temperature.Minimum.Value = Convert.ToString(Math.Round((Convert.ToDouble(dailyForecast.Temperature.Maximum.Value) -32.0 ) / 1.8));
+                }
+                OnPropertyChanged("Forecast");
             }
         }
 
@@ -42,9 +47,9 @@ namespace WeatherApp.ViewModel
             }
         }
 
-        private void GetFiveDayForecast()
+        private async void GetFiveDayForecast()
         {
-           // DailyForecast = await AccuWeatherHelper.GetFiveDayForecast(_City);
+           Forecast = await AccuWeatherHelper.GetFiveDayForecast(_City);
         }
 
         public ForecastVM()
